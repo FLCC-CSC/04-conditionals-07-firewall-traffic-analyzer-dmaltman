@@ -1,8 +1,8 @@
 # FILE NAME - firewall_traffic_analyzer.py
 
-# NAME: 
-# DATE: 
-# BRIEF DESCRIPTION:  
+# NAME: Dawn Maltman
+# DATE: February 25, 2026
+# BRIEF DESCRIPTION:  Firewall traffic analyzer based on port and file size
 
 
 
@@ -14,7 +14,30 @@
 
 
 ########## ENTER YER CODE BELOW THIS LINE ##########
+def main():
+    traffic_analyzer()
+def traffic_analyzer():
 
+    print("=== Network Traffic Security Analyzer ===")
+    print()
+    port_num = int(input("Enter the port number (e.g., 80, 22, 443, 3389): "))
+    file_size = int(input("Enter the data transfer size in megabytes (MB): "))
+    print()
+    print("FIREWALL LOG:")
+    print(f"Port: {port_num}, Transfer Size: {file_size} MB")
+
+    if (port_num == 22) or (port_num == 3389) and file_size >= 100:
+        print("Risk Assessment: HIGH RISK: Potential unauthorized remote access detected!")
+    elif port_num == 80 and file_size > 100:
+        print("Risk Assessment: MEDIUM RISK: Large unencrypted data transfer detected.")
+    elif port_num == 443:
+        print("Risk Assessment: LOW RISK: Secure encrypted transfer detected.")
+    else:
+        print("UNKNOWN: Unrecognized traffic pattern.")
+
+    print("-" * 24)
+
+main()
 
 
 
@@ -89,7 +112,7 @@ Risk Assessment: UNKNOWN: Unrecognized traffic pattern.
 '''
 
 1. Did you get tripped up using the `or` or `and` operators? If so, how?
-
+I got a little tripped up using the 'or' operator when looking for two possible outcomes. Once I used () I was fine.
 
 
 
