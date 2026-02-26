@@ -26,14 +26,14 @@ def traffic_analyzer():
     print("FIREWALL LOG:")
     print(f"Port: {port_num}, Transfer Size: {file_size} MB")
 
-    if (port_num == 22) or (port_num == 3389) and file_size >= 100:
+    if (port_num == 22 or port_num == 3389) and file_size >= 100:
         print("Risk Assessment: HIGH RISK: Potential unauthorized remote access detected!")
     elif port_num == 80 and file_size > 100:
         print("Risk Assessment: MEDIUM RISK: Large unencrypted data transfer detected.")
     elif port_num == 443:
         print("Risk Assessment: LOW RISK: Secure encrypted transfer detected.")
     else:
-        print("UNKNOWN: Unrecognized traffic pattern.")
+        print("Risk Assessment: UNKNOWN: Unrecognized traffic pattern.")
 
     print("-" * 24)
 
